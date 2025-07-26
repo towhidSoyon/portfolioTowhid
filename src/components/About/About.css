@@ -1,0 +1,93 @@
+/* About.css */
+
+/* Main Section Layout */
+.about-section {
+  margin-top: 12rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+/* Skills Grid */
+.hard-skills {
+  margin-top: 1.6rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.8rem;
+}
+
+/* Individual Skill */
+.hability {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hability img {
+  width: 3.4rem;
+}
+
+/* Headings */
+.about-section h2 {
+  display: inline-block;
+  margin-bottom: 2rem;
+  font-size: 3rem;
+  color: #23ce6b; /* var(--green) */
+  margin-top: 0;
+}
+
+.about-section h3 {
+  margin-top: 2rem;
+  color: #23ce6b; /* var(--green) */
+}
+
+/* Paragraph */
+.about-section p {
+  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
+  font-weight: 500;
+}
+
+/* Image Styling */
+.about-image {
+  text-align: center;
+}
+
+.about-image img {
+  margin-top: 2rem;
+  width: 75%;
+  filter: grayscale(0);
+  transition: filter 0.5s;
+}
+
+.about-image img:hover {
+  filter: grayscale(0);
+}
+
+/* Responsive: Mobile */
+@media (max-width: 960px) {
+  .about-section {
+    display: block;
+    text-align: center;
+  }
+
+  .hard-skills {
+    justify-content: center;
+  }
+
+  .about-image img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-image {
+    max-width: 100%;
+    margin-top: 4rem;
+  }
+
+  .about-image img {
+    width: 100%;
+  }
+}

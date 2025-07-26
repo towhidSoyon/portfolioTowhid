@@ -1,0 +1,167 @@
+/* Header.css */
+
+/* Root Variables */
+:root {
+  --green: #23ce6b;
+  --pink: #e31f71;
+  --blue: #016fb9;
+}
+
+/* Header Container */
+.header-fixed {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.8rem 10rem;
+  background-color: rgba(33, 33, 33, 0.31);
+  backdrop-filter: blur(6px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 1000;
+}
+
+/* Navigation */
+.header-fixed nav {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.header-fixed nav a {
+  color: #fff;
+  padding: 0.6rem;
+  font-family: 'Red Hat Display', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: filter 0.25s;
+}
+
+.header-fixed nav a.button {
+  padding: 0.6rem 2rem;
+}
+
+.header-fixed nav a:hover {
+  filter: brightness(0.6);
+}
+
+/* Toggle Switch */
+.header-fixed input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+  outline: none;
+}
+
+.header-fixed label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 55px;
+  height: 30px;
+  background: var(--green);
+  display: block;
+  border-radius: 100px;
+  position: relative;
+  margin-left: auto;
+}
+
+.header-fixed label:after {
+  content: '';
+  background: #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  left: 4px;
+  transition: transform 0.32s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.header-fixed input:checked + label {
+  background: var(--pink);
+}
+
+.header-fixed input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+/* Hamburger Menu */
+.menu {
+  width: 2rem;
+  height: 0.2rem;
+  background: #fff;
+  position: relative;
+  cursor: pointer;
+  display: none;
+  transition: 0.6s;
+}
+
+.menu::before,
+.menu::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.2rem;
+  background: #fff;
+  transition: 0.6s;
+}
+
+.menu::before {
+  bottom: 0.5rem;
+}
+
+.menu::after {
+  top: 0.5rem;
+}
+
+.menu.active {
+  background: transparent;
+}
+
+.menu.active::before {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+
+.menu.active::after {
+  top: 0;
+  transform: rotate(135deg);
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .header-fixed {
+    padding: 1.8rem 3rem;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  .header-fixed nav {
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: var(--green);
+    top: 0;
+    left: 0;
+    transition: opacity 0.25s;
+  }
+
+  .header-fixed nav.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .header-fixed nav a.button {
+    background-color: var(--pink);
+  }
+}
